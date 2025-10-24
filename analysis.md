@@ -137,6 +137,6 @@ The project will follow the following good coding practices:
 * **SOC (Separation of Concerns):** Each function handles one task only (e.g. `cleanPunctuation()`, `transformNumbers()`).
 * **Consistent Naming:** Use descriptive, consistent variable and function names (camelCase).
 * **Error Handling:** Always handle errors (`if err != nil { ... }`).
-* **Formatting:** Use `gofmt` and `goimports` for automatic code formatting.
+* **Formatting:** Use `gofmt` and `goimports` for automatic code formatting
 * **Refactoring:** Regularly clean and improve code structure.
 * **Independent Stages:** Each pipeline stage (Read, Clean, Transform, Write) should be fully independent.
