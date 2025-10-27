@@ -1,7 +1,5 @@
 # **Go Reloaded — Architecture Analysis**
 
-
-
 ## **1. Problem Description**
 
 The project **Go Reloaded** is a tool written in Go that reads an input text file and generates a new output file where the text is “corrected” according to specific transformation rules.
@@ -9,7 +7,6 @@ These rules include number conversions (hex/bin → decimal), text formatting ch
 
 The program does **not** understand the semantic meaning of the text — it simply processes it through a sequence of **transformation stages** (a pipeline), applying each rule step by step.
 
----
 
 ## **2. Transformation Rules**
                     
@@ -25,7 +22,7 @@ The program does **not** understand the semantic meaning of the text — it simp
 | **a → an**                                | Changes “a” to “an” if the next word starts with a **vowel (a, e, i, o, u)** or **h**.          | `a optimist` → `an optimist`           |
 | **Negative Numbers**                      | Preserves the negative sign before numbers.                                                     | `-1E (hex)` → `-30`                    |
 
----
+
 
 ## **3. Architecture (Pipeline vs FSM)**
 
@@ -36,7 +33,6 @@ Each stage performs one specific operation on the text and passes the result to 
 
 **Flow:**
 
-```
 input.txt
 ↓
 [1] Read Text
@@ -50,7 +46,6 @@ input.txt
 [5] Word transforms (up/low/cap)
 ↓
 [6] Write to output.txt
-```
 
 **Advantages:**
 
@@ -59,7 +54,6 @@ input.txt
 * Flexible — new stages can be added without affecting others.
 * Perfectly suited for **data flow** programs like this one.
 
----
 
 ### **FSM (Finite State Machine)**
 
@@ -69,14 +63,13 @@ for example: games, interactive menus, or processes with pause/resume logic.
 In **Go Reloaded**, there are no distinct states or interactions — only data processing.
 Thus, an FSM would be unnecessarily complex for this problem.
 
----
 
-### ✅ **Choice: Pipeline**
+
+###  **Choice: Pipeline**
 
 > I choose the **Pipeline model** because this problem involves a chain of data transformations.
 > Each stage operates independently, resulting in clean, readable, and maintainable code.
 
----
 
 ## **4. Golden Test Set (Success Test Cases)**
 
@@ -87,7 +80,6 @@ Thus, an FSM would be unnecessarily complex for this problem.
 | 3 | `There is no greater agony than bearing a untold story inside you.`                                           | `There is no greater agony than bearing an untold story inside you.`                     |
 | 4 | `Punctuation tests are ... kinda boring ,what do you think ?`                                                 | `Punctuation tests are... kinda boring, what do you think?`                              |
 
----
 
 ### **4.2. Tricky / Original Test Cases**
 
@@ -98,23 +90,19 @@ Thus, an FSM would be unnecessarily complex for this problem.
 | 9  | (low, n) in mixed text                              | `PLEASE Keep QUIET (low, 3).`                         | `please keep quiet.`                     |
 | 10 | Combination of hex + up                             | `Add -1E (hex) , then shout now (up, 1)!`             | `Add -30, then shout NOW!`               |
 
----
+
 
 ### **4.3. Full Paragraph Example (Full Flow)**
 
 **Input:**
 
-```
 As the guide said: ' welcome to the brooklyn bridge (cap) ' … please add 1E (hex) and 10 (bin) , then say go (up) ! There was a unusual vibe, a honest smile, and it was the best (low, 4) EXPERIENCE EVER (low) … what do you think ?
-```
+
 
 **Expected Output:**
 
-```
 As the guide said: 'Welcome to the Brooklyn Bridge'… please add 30 and 2, then say GO! There was an unusual vibe, an honest smile, and it was the best experience ever… what do you think?
-```
 
----
 
 ## **5. Execution Flow (Pipeline Stages)**
 
@@ -126,7 +114,7 @@ As the guide said: 'Welcome to the Brooklyn Bridge'… please add 30 and 2, then
 | **5. Word Transform** | Applies `(up                            | low                            | cap)`and`(…, n)`. | `"I am AN OPTIMIST, 30"` |
 | **6. Write**          | Writes the final result to output.      | ✅ `"I am an optimist, 30"`     |                   |                          |
 
----
+
 
 ## **6. Good Practices and Code Style**
 
