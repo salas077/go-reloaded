@@ -21,11 +21,12 @@ A powerful text processing tool built with **modular agent architecture** that a
 ```bash
 git clone https://github.com/yourusername/go-reloaded.git
 cd go-reloaded
-
+```
 
 ### Usage
 ```bash
 go run . input.txt output.txt
+```
 
 
 ##  Transformation Rules
@@ -45,12 +46,13 @@ go run . input.txt output.txt
 ##  Examples
 
 ### Input File (`sample.txt`):
-```
+
 it (cap) was the best of times, it was the worst of times (up) , ... IT WAS THE (low, 3) winter of despair.
 
 ### Command:
 ```bash
 go run . sample.txt result.txt
+```
 
 
 ### Output File (`result.txt`):
@@ -62,6 +64,7 @@ It was the best of times, it was the worst of TIMES, ... it was the winter of de
 ### Integration Tests (8/8 PASS)
 ```bash
 go run .
+```
 
 Runs all audit test cases with expected vs actual output verification.
 
@@ -69,15 +72,17 @@ Runs all audit test cases with expected vs actual output verification.
 ```bash
 go test ./tests/ -v
 ```
+
+
 Tests each individual agent:
-- ✅ Reader Agent - File I/O operations
-- ✅ Tokenizer Agent - Text splitting
-- ✅ Cleaner Agent - Punctuation fixes
-- ✅ GrammarFixer Agent - A/an corrections
-- ✅ Transformer Agent - All transformations
-- ✅ Formatter Agent - Final cleanup
-- ✅ Writer Agent - File output
-- ✅ ErrorHandler Agent - Error management
+-  Reader Agent - File I/O operations
+-  Tokenizer Agent - Text splitting
+-  Cleaner Agent - Punctuation fixes
+-  GrammarFixer Agent - A/an corrections
+-  Transformer Agent - All transformations
+-  Formatter Agent - Final cleanup
+-  Writer Agent - File output
+-  ErrorHandler Agent - Error management
 
 ### Build & Binary Test
 ```bash
@@ -121,10 +126,6 @@ go-reloaded/
 3. Commit your changes (`git commit -m 'Add amazing feature'`)
 4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
-
-##  License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ##  Quality Assurance
 
