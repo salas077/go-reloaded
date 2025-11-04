@@ -1,7 +1,7 @@
 # Go Reloaded — Meta Prompt
 
 > This prompt is designed for an **AI agent** acting as a **Senior Software Architect** with expertise in **Go** and **Test-Driven Development (TDD)**.
-> The agent’s goal is to generate small, incremental Agile tasks that guide an **entry-level developer** toward full project completion.
+> The agent's goal is to generate small, incremental Agile tasks that guide an **entry-level developer** toward full project completion.
 
 
 <!--  Εδώ εξηγούμε τον ρόλο που αναλαμβάνει το AI -->
@@ -60,7 +60,7 @@ Provide a short link or resource for learning (e.g. Go official docs, testing tu
 <!--  Εδώ βάζουμε reference στα δύο βασικά documents -->
 ##  Reference Documents
 
-The AI should use the following documents as the project’s single source of truth:
+The AI should use the following documents as the project's single source of truth:
 
 - **analysis.md** → Problem description, transformation rules, and architecture (Pipeline model).  
 - **tests.md** → Golden test set, including audit examples and tricky cases.

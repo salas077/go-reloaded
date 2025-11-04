@@ -1,30 +1,29 @@
-# Documentation Index — Go Reloaded
-This folder contains all project-level documentation for the **Go Reloaded** analysis and design phase.  
-Each file focuses on one specific aspect of the project.
+# Go Reloaded Documentation
 
+This folder contains the complete documentation for the Go Reloaded project.
 
-##  Files Overview
+## Files
 
-| File | Description |
-| [analysis.md](./analysis.md) | Complete project analysis, rule listing, and Pipeline vs FSM comparison. |
-| [agents.md](./agents.md) | Breakdown of the system into independent agents and their functions. |
-| [tests.md](./tests.md) | Golden Test Set, tricky test cases, and success examples. |
-| [meta_prompt.md](./meta_prompt.md) |Describes the **AI-assisted TDD process** — how agents, tasks, and tests were generated using structured meta-prompts. |
+- **analysis.md** - Complete project analysis including architecture decisions, transformation rules, and test cases
+- **agents.md** - Detailed breakdown of the agent-based pipeline architecture
+- **tests.md** - Comprehensive test documentation and validation criteria
+- **meta_prompt.md** - AI-assisted development methodology and task generation framework
 
-##  Related Folders
+## Project Overview
 
-| Folder | Purpose |
-| [`/tasks`](../tasks) | Contains incremental development tasks following the TDD method. |
-| [`/`](../) | Root-level repository with project overview and final README.md. |
+Go Reloaded is a text processing tool that applies various transformations to input text through a modular pipeline architecture. The system is designed using Test-Driven Development (TDD) principles with independent, testable components.
 
+## Architecture
 
-##  How to Read This Folder
+The project uses a **Pipeline Architecture** with 8 specialized agents:
 
-1. Start with `analysis.md` to understand the rules and reasoning.  
-2. Continue with `agents.md` to see how the logic is divided into independent stages.  
-3. Review `tests.md` for all transformation cases and edge conditions.  
-4. Check `/tasks/` for a step-by-step guide to how these would be implemented.
-5. Optionally read **`meta_prompt.md`** → to understand the AI agent collaboration and how      documentation and code were co-designed.
+1. **Reader** - File input operations
+2. **Tokenizer** - Text preprocessing and tokenization  
+3. **Cleaner** - Punctuation and spacing cleanup
+4. **GrammarFixer** - Grammar corrections (a/an)
+5. **Transformer** - Core transformations (hex, bin, case)
+6. **Formatter** - Final text formatting
+7. **Writer** - File output operations
+8. **ErrorHandler** - Error management and recovery
 
- *This documentation is part of the Go Reloaded Analysis Project (Zone01 Greece).*  
-*All content is written in natural language — no executable code.*
+Each agent is independently developed, tested, and integrated into the processing pipeline.

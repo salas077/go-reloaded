@@ -5,9 +5,9 @@ Each agent is responsible for a single step in the text processing pipeline.
 
 The overall flow is:
 
-Tokenizer → Reader → Cleaner → GrammarFixer → Transformer → Formatter → Writer  
-                          ↘  
-                          ErrorHandler
+Reader → Tokenizer → Cleaner → GrammarFixer → Transformer → Formatter → Writer  
+                          ↘  
+                          ErrorHandler
 
 
 ## 1. General Idea
@@ -22,10 +22,10 @@ If something goes wrong, we can isolate the issue in one specific agent instead 
 
 | Agent | What it does | Input | Output |
 |--------|---------------|--------|--------|
-| **Tokenizer** | Splits the raw text into tokens (words, punctuation, and symbols) so that later stages can process them more accurately. | Raw text | List of tokens |
 | **Reader** | Reads the input file and returns the text to be processed. | Input file | Raw text |
+| **Tokenizer** | Splits the raw text into tokens (words, punctuation, and symbols) so that later stages can process them more accurately. | Raw text | List of tokens |
 | **Cleaner** | Removes extra spaces and fixes punctuation or quotes. | Tokens or text | Clean text |
-| **GrammarFixer** | Detects and corrects small grammatical issues, such as changing “a” to “an” before vowels or “h”. | Clean text | Grammar-corrected text |
+| **GrammarFixer** | Detects and corrects small grammatical issues, such as changing "a" to "an" before vowels or "h". | Clean text | Grammar-corrected text |
 | **Transformer** | Applies word transformations: `(hex)`, `(bin)`, `(up)`, `(low)`, `(cap)` and their numbered variations. | Grammar-corrected text | Transformed text |
 | **Formatter** | Adjusts final punctuation, handles groups like `!?` or `...`, and ensures proper spacing. | Transformed text | Formatted text |
 | **Writer** | Saves the final processed text to the output file. | Formatted text | Output file |
@@ -55,15 +55,15 @@ This design keeps the tool reliable and prevents the whole system from failing b
 ## 5. Related Task Files
 
 | Agent | Task File |
-
-
-| Tokenizer | [TASK-001-Tokenizer.md](../tasks/TASK-001-Tokenizer.md) |
-| Cleaner | [TASK-002-Cleaner.md](../tasks/TASK-002-Cleaner.md) |
-| GrammarFixer | [TASK-003-GrammarFixer.md](../tasks/TASK-003-GrammarFixer.md) |
-| Transformer | [TASK-004-Transformer.md](../tasks/TASK-004-Transformer.md) |
-| Formatter | [TASK-005-Formatter.md](../tasks/TASK-005-Formatter.md) |
-| Writer | [TASK-006-Writer.md](../tasks/TASK-006-Writer.md) |
-| ErrorHandler | [TASK-007-ErrorHandler.md](../tasks/TASK-007-ErrorHandler.md) |
+|-------|----------|
+| Reader | [TASK-001-Reader.md](../tasks/TASK-001-Reader.md) |
+| Tokenizer | [TASK-002-Tokenizer.md](../tasks/TASK-002-Tokenizer.md) |
+| Cleaner | [TASK-003-Cleaner.md](../tasks/TASK-003-Cleaner.md) |
+| GrammarFixer | [TASK-004-GrammarFixer.md](../tasks/TASK-004-GrammarFixer.md) |
+| Transformer | [TASK-005-Transformer.md](../tasks/TASK-005-Transformer.md) |
+| Formatter | [TASK-006-Formatter.md](../tasks/TASK-006-Formatter.md) |
+| Writer | [TASK-007-Writer.md](../tasks/TASK-007-Writer.md) |
+| ErrorHandler | [TASK-008-ErrorHandler.md](../tasks/TASK-008-ErrorHandler.md) |
 
 
 
