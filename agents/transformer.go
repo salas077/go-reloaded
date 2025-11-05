@@ -113,7 +113,12 @@ func (t *Transformer) processCaseTransformations(text string) string {
 		} else if t.isSimpleCaseTag(word, "cap") {
 			punct := t.extractPunctuation(word)
 			if t.isNumber(words[i-1]) {
-				words[i] = "(Cap)" + punct
+				// Can't capitalize numbers, remove tag completely
+				if len(punct) > 0 {
+					// Add punctuation to the number
+					words[i-1] += punct
+				}
+				words[i] = ""
 			} else {
 				words[i-1] = t.transformWord(words[i-1], "cap") + punct
 				words[i] = ""

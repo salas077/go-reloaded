@@ -38,7 +38,7 @@ func testAll() {
 		{
 			"Test 6 - Multiple tags",
 			"We saw A2 (hex), then 1111 (bin) (cap) at the show.",
-			"We saw 162, then 15 (Cap) at the show.",
+			"We saw 162, then 15 at the show.",
 		},
 		{
 			"Test 7 - Quotation marks",
