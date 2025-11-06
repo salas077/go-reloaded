@@ -1,0 +1,15 @@
+# System files
+.DS_Store
+
+# Generated output files
+result.txt
+*.txt
+!sample.txt
+!test_paragraph.txt
+
+# Development history (local only)
+DEVELOPMENT_HISTORY.md
+
+# IDE files
+.vscode/
+.idea/
