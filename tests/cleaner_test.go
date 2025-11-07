@@ -13,7 +13,7 @@ func TestCleaner(t *testing.T) {
 		expected string
 	}{
 		{"hello , world !", "hello, world!"},
-		{" ' amazing ' day ", "'amazing'day "},
+		{" ' amazing ' day ", "'amazing' day"},
 		{"test ... case", "test... case"},
 	}
 	
