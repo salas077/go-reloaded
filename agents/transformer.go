@@ -216,18 +216,10 @@ func (t *Transformer) applyNumberedTransformation(words []string, tagIndex int) 
 	
 	// Check if we have enough words
 	if startIndex >= tagIndex {
-		// Not enough words - handle special case for cap
-		if caseType == "cap" {
-			words[tagIndex] = "(Cap)"
-			if tagEnd > tagIndex {
-				words[tagEnd] = ""
-			}
-		} else {
-			// Remove the tag
-			words[tagIndex] = ""
-			if tagEnd > tagIndex {
-				words[tagEnd] = ""
-			}
+		// Not enough words - remove the tag completely
+		words[tagIndex] = ""
+		if tagEnd > tagIndex {
+			words[tagEnd] = ""
 		}
 		return t.cleanJoin(words)
 	}
