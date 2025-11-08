@@ -46,9 +46,9 @@ This ensures that each part of the system is predictable, testable, and stable b
 ## 4. Error Handling Strategy
 
 The **ErrorHandler** works as a safety layer for the entire pipeline.  
-If one of the agents encounters an error (for example, invalid input), the ErrorHandler captures the issue, logs it, and continues processing the rest of the text.
+If one of the agents encounters an error (for example, invalid input), the ErrorHandler captures the issue, provides contextual error messages, and ensures clean error reporting.
 
-This design keeps the tool reliable and prevents the whole system from failing because of a single mistake.
+This design provides consistent error formatting and prevents duplicate error messages throughout the system.
 
 
 
