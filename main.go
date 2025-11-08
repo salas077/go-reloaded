@@ -43,8 +43,7 @@ func main() {
 	
 	// Check if there was an error during processing
 	if err != nil {
-		// Something went wrong, tell the user
-		fmt.Printf("Error processing files: %v\n", err)
+		// ErrorHandler already displayed the error message
 		return // Exit the program
 	}
 	
